@@ -24,9 +24,12 @@ function BackToTopBtn() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Smooth scroll to the top of the page
+  // Smooth scroll to the top of the page and remove focus to avoid visual "stick"
   const backToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Remove focus from button to prevent stuck styles
+    document.activeElement instanceof HTMLElement && document.activeElement.blur();
   };
 
   return (

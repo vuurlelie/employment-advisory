@@ -156,6 +156,7 @@ a.text-primary-dark:hover {
   position: relative;
   padding: 0.375rem 0.125rem;
   font-weight: 700;
+  text-transform: uppercase;
   color: #4a4032;
   transition: color 0.2s ease-in-out;
   text-decoration: none;
