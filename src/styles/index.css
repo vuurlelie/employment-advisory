@@ -124,8 +124,14 @@ a.text-primary-dark:hover {
 /* === IMAGE OVERLAYS === */
 .img-clip-overlay {
   transition: transform 0.2s ease-out;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
   will-change: transform;
+}
+
+/* Csak közepes és nagyobb nézeteknél legyen a ferde vágás */
+@media (min-width: 768px) {
+  .img-clip-overlay {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+  }
 }
 
 /* === TYPOGRAPHY & EFFECTS === */
