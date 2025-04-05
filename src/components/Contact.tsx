@@ -111,7 +111,7 @@ function Contact() {
             icon: 'fas fa-envelope',
             title: 'Email',
             content: (
-              <a href="mailto:kriszti169@gmail.com" className="text-blue-600">
+              <a href="mailto:kriszti169@gmail.com" className="text-blue-600 break-words">
                 pelda@munkaugyitanacsado.com
               </a>
             ),
