@@ -24,12 +24,9 @@ function BackToTopBtn() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Smooth scroll to the top of the page and remove focus to avoid visual "stick"
+  // Smooth scroll to the top of the page
   const backToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    // Remove focus from button to prevent stuck styles
-    document.activeElement instanceof HTMLElement && document.activeElement.blur();
   };
 
   return (
@@ -43,7 +40,8 @@ function BackToTopBtn() {
         type="button"
         data-twe-ripple-init
         data-twe-ripple-color="light"
-        className="rounded-full bg-[#bfa76a] p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-[#6e5e4e] hover:shadow-lg focus:outline-none"
+        className="rounded-full bg-[#bfa76a] p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out 
+          hover:bg-[#6e5e4e] active:bg-[#bfa76a] focus:bg-[#bfa76a] focus:outline-none hover:shadow-lg"
         aria-label="Scroll back to top"
       >
         <span className="block w-4 h-4">
