@@ -1,7 +1,3 @@
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import ScrollProgressBar from "./components/ScrollProgressBar";
 import BackToTopButton from "./components/BackToTopButton";
 import Navbar from "./components/Navbar";
