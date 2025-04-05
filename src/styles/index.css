@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === GLOBAL SETTINGS === */
+html,
+body {
+  font-family: 'Nunito Sans';
+  background: #f6f7ff;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Ensures sections don't hide under fixed navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito Sans';
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* === COLOR UTILS === */
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.text-white-90 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.text-primary-dark {
+  color: #4a4032;
+}
+
+a.text-primary {
+  color: #bfa76a !important;
+}
+a.text-primary:hover {
+  color: #d4af37 !important;
+}
+a.text-primary-dark:hover {
+  color: #6e5e4e !important;
+}
+
+/* === GENERAL UTILITIES === */
+.text-back {
+  position: absolute;
+  top: -3rem;
+  right: 2rem;
+  font-size: 500%;
+  font-weight: 700;
+  opacity: .04;
+  z-index: 0;
+}
+
+/* === CONTAINER MODIFIERS === */
+#page-container {
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.container.container-big {
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+}
+
+.container.container-footer {
+  padding-top: 14rem;
+  padding-bottom: 2rem;
+}
+
+/* === SQUARE DECORATIVE BACKGROUND SHAPES === */
+.square {
+  position: absolute;
+  display: block;
+  top: -5%;
+  left: -5%;
+  width: 100%;
+  height: 700px;
+  opacity: 0.3;
+  z-index: 0;
+  background: linear-gradient(to right, #f3f0eb, #e7dfd4);
+}
+
+@media (min-width: 992px) {
+  .square {
+    width: 85%;
+  }
+}
+
+.square-1 {
+  transform: skewY(5deg);
+}
+
+.square-2 {
+  left: -3%;
+  transform: skewY(3deg);
+}
+
+.square-flipped.square {
+  top: auto;
+  right: -5%;
+  bottom: -9%;
+  left: auto;
+  height: 200px;
+  background: linear-gradient(to right, #f3f0eb, #e7dfd4);
+}
+
+@media (min-width: 992px) {
+  .square-flipped.square {
+    width: 85%;
+  }
+}
+
+.square-flipped.square-1 {
+  transform: skewY(-2deg);
+}
+
+.square-flipped.square-2 {
+  right: -3%;
+  transform: skewY(-4deg);
+}
+
+/* === CLIPPED IMAGES === */
+.img-clip-overlay {
+  transition: transform 0.2s ease-out;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+  will-change: transform;
+}
+
+/* === NAVBAR === */
+.nav-header .nav-link {
+  position: relative;
+  padding: 0.375rem 0.125rem;
+  font-weight: 700;
+  color: #4a4032;
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.nav-header .nav-link i {
+  color: #bfa76a;
+}
+
+.nav-header .nav-link:hover,
+.nav-header .nav-link:focus,
+.nav-header .nav-link.active {
+  color: #bfa76a;
+}
+
+.nav-header .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  background-color: #bfa76a;
+  border-radius: 1px;
+  transition: width 0.2s ease-in-out;
+}
+
+.nav-header .nav-link::before {
+  content: '';
+  position: absolute;
+  top: -0.25rem;
+  right: -0.75rem;
+  bottom: -0.25rem;
+  left: -0.75rem;
+  background-color: transparent;
+  transition: background-color 0.12s ease-out;
+  z-index: -1;
+}
+
+.nav-header .nav-link:hover::before,
+.nav-header .nav-link:focus::before {
+  background-color: rgba(191, 167, 106, 0.08);
+}
+
+.nav-header .nav-link:active::before {
+  transform: skewY(-3deg) translateX(-2px);
+}
+
+.nav-header .nav-link + .nav-link {
+  margin-left: 2rem;
+}
+
+/* === SWIPER OVERRIDES === */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #bfa76a;
+}
+
+.swiper-pagination-bullet {
+  background-color: #d8c693;
+  opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #bfa76a;
+  opacity: 1;
+}
+
+/* === EXTRA UTILS === */
+.rounded-xl {
+  border-radius: 3rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(26, 41, 128, 0.175) !important;
+}
+
+.border-2x {
+  border-width: 2px;
+}
+
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
