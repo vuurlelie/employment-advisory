@@ -272,6 +272,7 @@ button.nav-link.active::after {
   background-color: #bfa76a;
   border-radius: 1px;
   transition: width 0.2s ease-in-out;
+  outline: none;
 }
 
 button.nav-link::before {
@@ -284,6 +285,7 @@ button.nav-link::before {
   background-color: transparent;
   transition: background-color 0.12s ease-out;
   z-index: -1;
+  outline: none;
 }
 
 button.nav-link:hover::before,

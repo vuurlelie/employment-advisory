@@ -2,19 +2,14 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/images/logo.png";
 
-/**
- * Responsive and animated sticky navigation bar with mobile hamburger menu.
- */
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false);               // Tracks scroll position
-  const [activeSection, setActiveSection] = useState("");        // Current section ID
-  const [isMenuOpen, setIsMenuOpen] = useState(false);           // Mobile menu toggle
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Scroll detection & active section highlight
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
-
       const scrollPos = window.scrollY + 200;
       const sections = Array.from(document.querySelectorAll("section[id]"));
 
@@ -44,13 +39,12 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll and state update
   const handleNavClick = (id: string) => {
     const target = document.getElementById(id);
     if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       setActiveSection(id);
-      setIsMenuOpen(false); // close mobile menu
+      setIsMenuOpen(false);
       window.history.replaceState(null, "", `#${id}`);
     }
   };
@@ -62,7 +56,6 @@ function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6">
-        {/* Logo */}
         <button
           onClick={() => {
             setActiveSection("");
@@ -77,19 +70,17 @@ function Navbar() {
 
         {/* Desktop navigation */}
         <nav className="hidden sm:flex space-x-6 items-center text-sm font-semibold uppercase tracking-wide">
-          {[
-            { id: "bemutatkozas", label: "Bemutatkozás" },
-            { id: "szolgaltatasok", label: "Szolgáltatások" },
-            { id: "kapcsolat", label: "Kapcsolat" },
-          ].map((link) => (
+          {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
             <button
-              key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`relative nav-link ${
-                activeSection === link.id ? "active" : ""
-              }`}
+              key={id}
+              onClick={() => handleNavClick(id)}
+              className={`relative nav-link ${activeSection === id ? "active" : ""}`}
             >
-              {link.label}
+              {id === "bemutatkozas"
+                ? "Bemutatkozás"
+                : id === "szolgaltatasok"
+                ? "Szolgáltatások"
+                : "Kapcsolat"}
             </button>
           ))}
         </nav>
@@ -108,20 +99,26 @@ function Navbar() {
 
       {/* Mobile dropdown menu */}
       {isMenuOpen && (
-        <div className="sm:hidden bg-white shadow-md py-4 px-6 space-y-4 text-sm font-semibold uppercase tracking-wide">
-          {[
-            { id: "bemutatkozas", label: "Bemutatkozás" },
-            { id: "szolgaltatasok", label: "Szolgáltatások" },
-            { id: "kapcsolat", label: "Kapcsolat" },
-          ].map((link) => (
+        <div className="sm:hidden bg-white shadow-md py-4 px-6 space-y-4">
+          {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
             <button
-              key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`block w-full text-left nav-link ${
-                activeSection === link.id ? "active" : ""
-              }`}
+              key={id}
+              onClick={() => handleNavClick(id)}
+              className="block w-full text-left focus:outline-none"
             >
-              {link.label}
+              <span
+                className={`inline-block font-bold uppercase tracking-wide transition-all duration-200 ${
+                  activeSection === id
+                    ? "text-[#bfa76a] border-b-2 border-[#bfa76a]"
+                    : "text-[#4a4032] hover:text-[#bfa76a]"
+                }`}
+              >
+                {id === "bemutatkozas"
+                  ? "Bemutatkozás"
+                  : id === "szolgaltatasok"
+                  ? "Szolgáltatások"
+                  : "Kapcsolat"}
+              </span>
             </button>
           ))}
         </div>
