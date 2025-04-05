@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/images/logo.png";
 
+/**
+ * Responsive and animated sticky navigation bar with mobile hamburger menu.
+ */
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);               // Tracks scroll position
+  const [activeSection, setActiveSection] = useState("");        // Current section ID
+  const [isMenuOpen, setIsMenuOpen] = useState(false);           // Mobile menu toggle
 
+  // Scroll detection & active section highlight
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -15,7 +19,6 @@ function Navbar() {
       const sections = Array.from(document.querySelectorAll("section[id]"));
 
       let current = "";
-
       for (let i = 0; i < sections.length; i++) {
         const section = sections[i] as HTMLElement;
         const offsetTop = section.offsetTop;
@@ -41,85 +44,89 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Smooth scroll and state update
   const handleNavClick = (id: string) => {
-    setActiveSection(id);
-    window.history.replaceState(null, "", `#${id}`);
-    setMenuOpen(false); // close menu on mobile
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSection(id);
+      setIsMenuOpen(false); // close mobile menu
+      window.history.replaceState(null, "", `#${id}`);
+    }
   };
 
   return (
-    <div className="container">
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow py-2" : "bg-transparent py-6"
-        }`}
-      >
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6">
-          {/* Logo */}
-          <button
-            onClick={() => {
-              setActiveSection("");
-              window.history.replaceState(null, "", window.location.pathname);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              setMenuOpen(false);
-            }}
-            className="flex justify-center items-center flex-shrink-0 focus:outline-none"
-            aria-label="Scroll to top"
-          >
-            <img src={logo} alt="Logo" className="w-16 h-auto" />
-          </button>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white shadow py-2" : "bg-transparent py-6"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6">
+        {/* Logo */}
+        <button
+          onClick={() => {
+            setActiveSection("");
+            setIsMenuOpen(false);
+            window.history.replaceState(null, "", window.location.pathname);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center focus:outline-none"
+        >
+          <img src={logo} alt="Logo" className="w-16 h-auto" />
+        </button>
 
-          {/* Desktop nav */}
-          <nav className="hidden sm:flex flex-1 justify-end space-x-6 items-center text-sm font-semibold uppercase tracking-wide nav-header">
-            {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                onClick={() => handleNavClick(id)}
-                className={`nav-link ${activeSection === id ? "active" : ""}`}
-              >
-                {id === "bemutatkozas"
-                  ? "Bemutatkozás"
-                  : id === "szolgaltatasok"
-                  ? "Szolgáltatások"
-                  : "Kapcsolat"}
-              </a>
-            ))}
-          </nav>
+        {/* Desktop navigation */}
+        <nav className="hidden sm:flex space-x-6 items-center text-sm font-semibold uppercase tracking-wide">
+          {[
+            { id: "bemutatkozas", label: "Bemutatkozás" },
+            { id: "szolgaltatasok", label: "Szolgáltatások" },
+            { id: "kapcsolat", label: "Kapcsolat" },
+          ].map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleNavClick(link.id)}
+              className={`relative nav-link ${
+                activeSection === link.id ? "active" : ""
+              }`}
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
 
-          {/* Mobile menu toggle */}
+        {/* Hamburger menu button */}
+        <div className="sm:hidden">
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="sm:hidden focus:outline-none text-[#4a4032]"
-            aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-[#4a4032] hover:text-[#bfa76a] focus:outline-none"
+            aria-label="Toggle Menu"
           >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile dropdown menu */}
-        {menuOpen && (
-          <div className="sm:hidden bg-white shadow-md mt-2 px-4 pb-4 text-sm font-semibold uppercase tracking-wide">
-            {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                onClick={() => handleNavClick(id)}
-                className={`block px-4 py-2 rounded text-[#4a4032] hover:text-[#bfa76a] ${
-                  activeSection === id ? "text-[#bfa76a]" : ""
-                }`}
-              >
-                {id === "bemutatkozas"
-                  ? "Bemutatkozás"
-                  : id === "szolgaltatasok"
-                  ? "Szolgáltatások"
-                  : "Kapcsolat"}
-              </a>
-            ))}
-          </div>
-        )}
-      </header>
-    </div>
+      {/* Mobile dropdown menu */}
+      {isMenuOpen && (
+        <div className="sm:hidden bg-white shadow-md py-4 px-6 space-y-4 text-sm font-semibold uppercase tracking-wide">
+          {[
+            { id: "bemutatkozas", label: "Bemutatkozás" },
+            { id: "szolgaltatasok", label: "Szolgáltatások" },
+            { id: "kapcsolat", label: "Kapcsolat" },
+          ].map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleNavClick(link.id)}
+              className={`block w-full text-left nav-link ${
+                activeSection === link.id ? "active" : ""
+              }`}
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </header>
   );
 }
 

@@ -11,7 +11,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Ensures sections don't hide under fixed navbar */
+  scroll-padding-top: 100px; /* Prevent section from hiding under navbar */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,7 +22,13 @@ strong {
   font-weight: 600;
 }
 
-/* === COLOR UTILS === */
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+/* === TEXT COLOR HELPERS === */
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
@@ -45,18 +51,7 @@ a.text-primary-dark:hover {
   color: #6e5e4e !important;
 }
 
-/* === GENERAL UTILITIES === */
-.text-back {
-  position: absolute;
-  top: -3rem;
-  right: 2rem;
-  font-size: 500%;
-  font-weight: 700;
-  opacity: .04;
-  z-index: 0;
-}
-
-/* === CONTAINER MODIFIERS === */
+/* === PAGE STRUCTURE HELPERS === */
 #page-container {
   width: 100%;
   min-width: 320px;
@@ -74,14 +69,14 @@ a.text-primary-dark:hover {
   padding-bottom: 2rem;
 }
 
-/* === SQUARE DECORATIVE BACKGROUND SHAPES === */
+/* === BACKGROUND SHAPES === */
 .square {
   position: absolute;
   display: block;
   top: -5%;
   left: -5%;
   width: 100%;
-  height: 700px;
+  height: 750px;
   opacity: 0.3;
   z-index: 0;
   background: linear-gradient(to right, #f3f0eb, #e7dfd4);
@@ -126,11 +121,34 @@ a.text-primary-dark:hover {
   transform: skewY(-4deg);
 }
 
-/* === CLIPPED IMAGES === */
+/* === IMAGE OVERLAYS === */
 .img-clip-overlay {
   transition: transform 0.2s ease-out;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
   will-change: transform;
+}
+
+/* === TYPOGRAPHY & EFFECTS === */
+.text-back {
+  position: absolute;
+  top: -3rem;
+  right: 2rem;
+  font-size: 500%;
+  font-weight: 700;
+  opacity: .04;
+  z-index: 0;
+}
+
+.rounded-xl {
+  border-radius: 3rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(26, 41, 128, 0.175) !important;
+}
+
+.border-2x {
+  border-width: 2px;
 }
 
 /* === NAVBAR === */
@@ -141,10 +159,6 @@ a.text-primary-dark:hover {
   color: #4a4032;
   transition: color 0.2s ease-in-out;
   text-decoration: none;
-}
-
-.nav-header .nav-link i {
-  color: #bfa76a;
 }
 
 .nav-header .nav-link:hover,
@@ -190,7 +204,28 @@ a.text-primary-dark:hover {
   margin-left: 2rem;
 }
 
-/* === SWIPER OVERRIDES === */
+/* === MOBILE MENU STYLING (Hamburger) === */
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4a4032;
+  transition: all 0.2s ease-in-out;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
+  background-color: rgba(191, 167, 106, 0.1);
+  color: #bfa76a;
+}
+
+.mobile-nav-link.active {
+  color: #bfa76a;
+  border-bottom: 2px solid #bfa76a;
+}
+
+/* === SWIPER CUSTOMIZATION === */
 .swiper-button-prev,
 .swiper-button-next {
   color: #bfa76a;
@@ -204,23 +239,4 @@ a.text-primary-dark:hover {
 .swiper-pagination-bullet-active {
   background-color: #bfa76a;
   opacity: 1;
-}
-
-/* === EXTRA UTILS === */
-.rounded-xl {
-  border-radius: 3rem;
-}
-
-.shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(26, 41, 128, 0.175) !important;
-}
-
-.border-2x {
-  border-width: 2px;
-}
-
-a,
-a:focus,
-a:hover {
-  text-decoration: none;
 }
