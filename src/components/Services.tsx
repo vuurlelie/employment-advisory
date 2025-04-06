@@ -9,7 +9,7 @@ function Services() {
       <div className="container mx-auto px-0 max-w-full">
         {/* Section title with background gradient */}
         <h2
-          className="border-b-[2px] border-[#bfa76a] text-3xl md:text-4xl font-bold text-[#4a4032] text-center pt-12 px-8 md:px-16 py-4 rounded-md shadow-sm"
+          className="border-b-[2px] border-[#bfa76a] text-3xl md:text-4xl font-bold text-[#4a4032] text-center pt-12 px-8 md:px-16 py-4 rounded-md shadow-sm drop-shadow-md"
           style={{
             background: 'linear-gradient(to right, rgba(244, 240, 234, 0.95) 50%, rgba(255,255,255,0) 70%)',
           }}

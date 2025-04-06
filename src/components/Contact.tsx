@@ -85,59 +85,49 @@ function Contact() {
 
   return (
     <section id="kapcsolat" className="bg-[#f9f9f9] py-16 px-4 shadow">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#4a4032] text-center px-4 md:px-12 pb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#4a4032] text-center px-4 md:px-12 pb-12 drop-shadow-md">
         Kapcsolat
       </h2>
-
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 mb-16">
-        {/* Left: Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {[{ icon: 'fas fa-phone', title: 'Telefon', content: 'Mobil: +36-30-123-4567' },
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 mb-16">
+        {/* Right: Contact Info (order-1 on small, order-2 on large) */}
+        <div className="w-full lg:w-1/2 space-y-6 order-1 lg:order-2">
+          {[{ icon: 'fas fa-phone', label: 'Telefon', value: 'Mobil: +36-30-123-4567' },
             {
               icon: 'fas fa-envelope',
-              title: 'Email',
-              content: (
-                <a href="mailto:pelda@munkaugyitanacsado.com" className="text-blue-600 break-words">
-                  pelda@munkaugyitanacsado.com
-                </a>
-              )
+              label: 'Email',
+              value: <a href="mailto:kriszti169@gmail.com" className="text-blue-600 break-words">pelda@munkaugyitanacsado.com</a>
             },
             {
               icon: 'fab fa-facebook-f',
-              title: 'Facebook',
-              content: (
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                  Munkaügyi tanácsadó
-                </a>
-              )
+              label: 'Facebook',
+              value: <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#4a4032] hover:text-[#bfa76a] underline hover:underline hover:underline">Munkaügyi tanácsadó</a>
             },
             {
               icon: 'fas fa-map-marker-alt',
-              title: 'Cím',
-              content: '2112 Veresegyház, Példa utca 10.'
+              label: 'Cím',
+              value: '2112 Veresegyház, Példa utca 10.'
             }
-          ].map((card, idx) => (
-            <div
-              key={idx}
-              className="bg-white px-6 py-6 shadow-md rounded-lg flex flex-col justify-center items-center text-center h-full"
-            >
-              <div className="text-4xl mb-4 text-[#f1e6dd]">
-                <i className={card.icon}></i>
+          ].map((item, index, array) => (
+            <div key={index}>
+              <div className="flex items-center gap-3 text-[#4a4032] font-bold">
+                <i className={`${item.icon} text-[#bfa76a] text-lg`}></i>
+                <span>{item.label}</span>
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-[#4a4032]">{card.title}</h3>
-              <p className="text-[#4a4032]">{card.content}</p>
+              <div className="text-[#4a4032] mt-1">{item.value}</div>
+              {index < array.length - 1 && (
+                <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
+              )}
             </div>
           ))}
         </div>
-
-        {/* Right: Google Map */}
-        <div className="w-full h-full shadow rounded overflow-hidden">
+        {/* Left: Google Map (order-2 on small, order-1 on large) */}
+        <div className="w-full lg:w-1/2 shadow rounded overflow-hidden order-2 lg:order-1">
           <iframe
             title="Google Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86008.58404158364!2d19.222953727499235!3d47.65007014570404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741cdbff35efcaf%3A0xf9d707937bf6238e!2sVeresegyh%C3%A1z%2C%202112!5e0!3m2!1shu!2shu!4v1743936443888!5m2!1shu!2shu"
             width="100%"
             height="100%"
-            style={{ minHeight: '400px', border: 0 }}
+            style={{ minHeight: '350px', border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
