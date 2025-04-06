@@ -84,7 +84,7 @@ function Contact() {
   };
 
   return (
-    <section id="kapcsolat" className="bg-[#f9f9f9] py-16 px-4 shadow">
+    <section id="kapcsolat" className="bg-[#f9f9f9] py-12 px-4 shadow">
       <h2 className="text-3xl md:text-4xl font-bold text-[#4a4032] text-center px-4 md:px-12 pb-12 drop-shadow-md">
         Kapcsolat
       </h2>
@@ -100,7 +100,20 @@ function Contact() {
             {
               icon: 'fab fa-facebook-f',
               label: 'Facebook',
-              value: <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#4a4032] hover:text-[#bfa76a] underline hover:underline hover:underline">Munkaügyi tanácsadó</a>
+              value: (
+                <div className="w-fit h-1/2 mt-2 shadow border-2 border-[#e7dfd4]">
+                  <iframe
+                    title="Facebook Page"
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61555066264806&tabs&width=300&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                    width="100%"
+                    height="70"
+                    style={{ border: 'none', overflow: 'hidden' }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allow="encrypted-media"
+                  ></iframe>
+                </div>
+              )
             },
             {
               icon: 'fas fa-map-marker-alt',
@@ -124,10 +137,10 @@ function Contact() {
         <div className="w-full lg:w-1/2 shadow rounded overflow-hidden order-2 lg:order-1">
           <iframe
             title="Google Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86008.58404158364!2d19.222953727499235!3d47.65007014570404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741cdbff35efcaf%3A0xf9d707937bf6238e!2sVeresegyh%C3%A1z%2C%202112!5e0!3m2!1shu!2shu!4v1743936443888!5m2!1shu!2shu"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86008.58404158364!2d19.222953727499235!3d47.65007014570404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741cdbff35efcaf%3A0xf9d707937bf6238e!2sVeresegyh%C3%A1z%2C%202112!5e0!3m2!1shu!2hu!4v1743936443888!5m2!1shu!2hu"
             width="100%"
             height="100%"
-            style={{ minHeight: '350px', border: 0 }}
+            style={{ minHeight: '300px', border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

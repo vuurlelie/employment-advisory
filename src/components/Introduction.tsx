@@ -4,7 +4,7 @@ function Introduction() {
   return (
     <section
       id="bemutatkozas"
-      className="mt-36 mb-20 py-16 bg-[#f9f9f9] shadow relative w-full"
+      className="mt-36 mb-20 py-12 bg-[#f9f9f9] shadow relative w-full"
     >
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Flex column for mobile, grid row for md+ */}
