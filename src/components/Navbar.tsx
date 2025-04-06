@@ -27,10 +27,8 @@ function Navbar() {
 
       if (scrollPos < 300) {
         setActiveSection("");
-        window.history.replaceState(null, "", window.location.pathname);
       } else {
         setActiveSection(current);
-        window.history.replaceState(null, "", `#${current}`);
       }
     };
 
@@ -45,7 +43,6 @@ function Navbar() {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       setActiveSection(id);
       setIsMenuOpen(false);
-      window.history.replaceState(null, "", `#${id}`);
     }
   };
 
