@@ -158,58 +158,6 @@ a.text-primary-dark:hover {
 }
 
 /* === NAVBAR === */
-.nav-header .nav-link {
-  position: relative;
-  padding: 0.375rem 0.125rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #4a4032;
-  transition: color 0.2s ease-in-out;
-  text-decoration: none;
-}
-
-.nav-header .nav-link:hover,
-.nav-header .nav-link:focus,
-.nav-header .nav-link.active {
-  color: #bfa76a;
-}
-
-.nav-header .nav-link.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.25rem;
-  height: 2px;
-  background-color: #bfa76a;
-  border-radius: 1px;
-  transition: width 0.2s ease-in-out;
-}
-
-.nav-header .nav-link::before {
-  content: '';
-  position: absolute;
-  top: -0.25rem;
-  right: -0.75rem;
-  bottom: -0.25rem;
-  left: -0.75rem;
-  background-color: transparent;
-  transition: background-color 0.12s ease-out;
-  z-index: -1;
-}
-
-.nav-header .nav-link:hover::before,
-.nav-header .nav-link:focus::before {
-  background-color: rgba(191, 167, 106, 0.08);
-}
-
-.nav-header .nav-link:active::before {
-  transform: skewY(-3deg) translateX(-2px);
-}
-
-.nav-header .nav-link + .nav-link {
-  margin-left: 2rem;
-}
 
 /* === MOBILE MENU STYLING (Hamburger) === */
 .mobile-nav-link {
@@ -262,26 +210,13 @@ button.nav-link {
   outline: none; /* Removes the default focus ring */
 }
 
-button.nav-link:hover,
-button.nav-link:focus,
 button.nav-link.active {
   color: #bfa76a;
+  border-bottom: 2px solid #bfa76a;
 }
 
-button.nav-link.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.25rem;
-  height: 2px;
-  background-color: #bfa76a;
-  border-radius: 1px;
-  transition: width 0.2s ease-in-out;
-  outline: none;
-}
-
-button.nav-link::before {
+button.nav-link:hover::before,
+button.nav-link:focus::before {
   content: '';
   position: absolute;
   top: -0.25rem;
@@ -294,11 +229,7 @@ button.nav-link::before {
   outline: none;
 }
 
-button.nav-link:hover::before,
-button.nav-link:focus::before {
+button.nav-link:hover {
+  color: #bfa76a;
   background-color: rgba(191, 167, 106, 0.08);
-}
-
-button.nav-link:active::before {
-  transform: skewY(-3deg) translateX(-2px);
 }

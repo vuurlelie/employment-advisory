@@ -5,7 +5,7 @@ import '../styles/services.css';
 
 function Services() {
   return (
-    <section id="szolgaltatasok" className="mb-28 bg-[#f9f9f9] shadow">
+    <section id="szolgaltatasok" className="mb-20 bg-[#f9f9f9] shadow">
       <div className="container mx-auto px-0 max-w-full">
         {/* Section title with background gradient */}
         <h2
@@ -29,7 +29,7 @@ function Services() {
           {serviceItems.map((item, idx) => (
             <SwiperSlide key={idx}>
               <div
-                className="relative h-full min-h-[600px] md:min-h-[650px] flex flex-col md:flex-row items-center py-16 px-4 sm:px-8 md:px-16"
+                className="relative h-full min-h-[650px] sm:min-h-[450px] md:min-h-[500px] flex flex-col md:flex-row items-center py-4 px-4 sm:px-8 md:px-16"
                 style={
                   window.innerWidth >= 768
                     ? {

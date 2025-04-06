@@ -11,7 +11,7 @@ function Hero() {
             Munkaügyi tanácsadás
           </h1>
 
-          <p className="text-[#4a4032] text-justify text-base sm:text-lg mb-8 leading-relaxed max-w-md mx-auto md:mx-0">
+          <p className="text-[#4a4032] text-justify font-bold text-base sm:text-lg mb-8 leading-relaxed max-w-md mx-auto md:mx-0">
             Munkaügyi és munkajogi megoldások cégek és magánszemélyek részére a munka világában történő könnyebb eligazodás érdekében.
           </p>
 
