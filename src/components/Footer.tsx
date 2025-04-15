@@ -10,12 +10,12 @@ function Footer() {
         <footer className="relative">
           <div className="container container-footer text-center">
             {/* Copyright text */}
-            <p className="text-md text-[#4a4032]">
+            <p className="text-lg text-[#4a4032]">
               © 2025 Sike Enikő – Minden jog fenntartva.
             </p>
 
             {/* Site creator info */}
-            <p className="mt-2 text-sm text-[#bfa76a]">
+            <p className="mt-2 text-md text-[#bfa76a]">
               Készítette: {' '}
               <a
                 href="https://www.facebook.com/profile.php?id=100012648488859"

@@ -59,13 +59,13 @@ function Services() {
 
                   {/* Description */}
                   {Array.isArray(item.text) ? (
-                    <ul className="list-disc pl-5 mt-8 md:mt-10 space-y-2 text-[#4a4032] text-base tracking-wide">
+                    <ul className="list-disc pl-5 mt-8 md:mt-10 space-y-2 text-[#4a4032] text-base xl:text-lg tracking-wide">
                       {item.text.map((point, i) => (
                         <li key={i}>{point}</li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-[#4a4032] text-base mt-8 md:mt-10 leading-relaxed text-justify relative z-10 tracking-wide">
+                    <p className="text-[#4a4032] text-base lg:text-lg mt-8 md:mt-10 leading-relaxed text-justify relative z-10 tracking-wide">
                       {item.text}
                     </p>
                   )}

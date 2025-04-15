@@ -92,8 +92,8 @@ function Contact() {
         {/* Left: Facebook Embed (order-2 on small, order-1 on large) */}
         <div className="w-full lg:w-1/2 order-2 lg:order-1">
           <div className="space-y-6 text-[#4a4032] font-bold">
-            <div className="flex items-center gap-3">
-              <i className="fab fa-facebook-f text-[#bfa76a] text-lg"></i>
+            <div className="flex items-center gap-3 text-base md:text-lg">
+              <i className="fab fa-facebook-f text-[#bfa76a] text-base md:text-lg"></i>
               <span>Facebook</span>
             </div>
             <div className="shadow border:white p-1 rounded overflow-hidden w-fit">
@@ -143,11 +143,11 @@ function Contact() {
             },
           ].map((item, index) => (
             <div key={index}>
-              <div className="flex items-center gap-3 text-[#4a4032] font-bold">
+              <div className="flex items-center gap-3 text-[#4a4032] font-bold text-base md:text-lg">
                 <i className={`${item.icon} text-[#bfa76a] text-lg`}></i>
                 <span>{item.label}</span>
               </div>
-              <div className="text-[#4a4032] mt-1">{item.value}</div>
+              <div className="text-[#4a4032] mt-1 text-base md:text-lg">{item.value}</div>
                 <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
             </div>
           ))}
