@@ -28,10 +28,10 @@ function Introduction() {
 
           {/* === Text Content === */}
           <div className="order-3 md:order-2 mt-8 lg:pr-10 md:mt-0">
-            <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] text-justify mx-auto md:mx-0">
+            <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] md:text-justify px-2 md:px-0 mx-auto md:mx-0">
               Sike Enikő HR és munkajogi szakokleveles tanácsadó vagyok. Több éves HR területen szerzett tapasztalattal hiszem, hogy a munka nem csupán megélhetés, hanem az önmegvalósítás és a jövőépítés egyik legfontosabb eszköze. HR és munkaügyi szakemberként abban támogathatlak, hogy magabiztosan, tudatosan és jogilag is megalapozottan hozhass döntéseket a karrierutad során.
             </p>
-            <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] text-justify mx-auto md:mx-0">
+            <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] md:text-justify px-2 md:px-0 mx-auto md:mx-0">
               Legyen szó álláskeresésről, karrierváltásról, munkahelyi nehézségekről vagy munkajogi kérdésekről, célom, hogy személyre szabott, gyakorlatias és őszinte tanácsokat adjak. Melletted állok, ha elbizonytalanodtál, változás előtt állsz, vagy egyszerűen csak szeretnél tisztábban látni a lehetőségeid között.
             </p>
 
