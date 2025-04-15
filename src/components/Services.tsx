@@ -45,21 +45,30 @@ function Services() {
                 }
               >
                 {/* Content Box with subtle background */}
-                <div className="w-full lg:w-1/2 bg-[rgba(255,255,255,0.8)] p-6 sm:p-8 md:p-10 rounded shadow-md">
-                  {/* Number + Title */}
-                  <div className="flex items-end space-x-4">
-                    <span className="text-[60px] font-bold text-[#4a4032] opacity-15 leading-none min-w-[60px] text-center">
-                      {item.number}
-                    </span>
-                    <h3 className="text-xl md:text-2xl font-semibold text-[#4a4032] leading-tight relative z-10">
-                      {item.title}
-                    </h3>
-                  </div>
+                <div className="w-full lg:w-1/2 bg-[rgba(255,255,255,0.8)] p-6 sm:p-8 md:p-10 mx-8 rounded shadow-md">
+                
+                {/* Number + Title */}
+                <div className="flex items-center space-x-4">
+                  <span className="text-[60px] font-bold text-[#4a4032] opacity-15 leading-none min-w-[60px] text-center">
+                    {item.number}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-semibold text-[#4a4032] leading-tight relative z-10">
+                    {item.title}
+                  </h3>
+                </div>
 
                   {/* Description */}
-                  <p className="text-[#4a4032] text-base mt-8 md:mt-10 leading-relaxed text-justify relative z-10 tracking-wide">
-                    {item.text}
-                  </p>
+                  {Array.isArray(item.text) ? (
+                    <ul className="list-disc pl-5 mt-8 md:mt-10 space-y-2 text-[#4a4032] text-base tracking-wide">
+                      {item.text.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-[#4a4032] text-base mt-8 md:mt-10 leading-relaxed text-justify relative z-10 tracking-wide">
+                      {item.text}
+                    </p>
+                  )}
                 </div>
               </div>
             </SwiperSlide>

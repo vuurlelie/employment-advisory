@@ -66,7 +66,7 @@ function Navbar() {
         </button>
 
         {/* Desktop navigation */}
-        <nav className="hidden sm:flex space-x-6 items-center text-sm font-semibold uppercase tracking-wide">
+        <nav className="hidden sm:flex space-x-6 items-center text-base font-semibold uppercase tracking-wide">
           {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
             <button
               key={id}

@@ -18,7 +18,7 @@ function Footer() {
             <p className="mt-2 text-sm text-[#bfa76a]">
               Készítette: {' '}
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/profile.php?id=100012648488859"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#bfa76a] hover:text-[#bfa76a] hover:underline text-md"
@@ -30,7 +30,7 @@ function Footer() {
             {/* Facebook icon */}
             <div className="mt-3">
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/profile.php?id=61574846083614"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#4a4032] hover:text-[#bfa76a] text-md"

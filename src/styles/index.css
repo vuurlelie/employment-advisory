@@ -5,7 +5,7 @@
 /* === GLOBAL SETTINGS === */
 html,
 body {
-  font-family: 'Nunito Sans';
+  font-family: 'Merriweather', serif;
   background: #f6f7ff;
 }
 
@@ -15,7 +15,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Nunito Sans';
+  font-family: 'Merriweather', serif;
 }
 
 strong {
@@ -141,7 +141,7 @@ a.text-primary-dark:hover {
   right: 2rem;
   font-size: 500%;
   font-weight: 700;
-  opacity: .04;
+  opacity: .03;
   z-index: 0;
 }
 

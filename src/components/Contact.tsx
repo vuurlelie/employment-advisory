@@ -88,63 +88,69 @@ function Contact() {
       <h2 className="text-3xl md:text-4xl font-bold text-[#4a4032] text-center px-4 md:px-12 pb-12 drop-shadow-md">
         Kapcsolat
       </h2>
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 mb-16">
-        {/* Right: Contact Info (order-1 on small, order-2 on large) */}
+      <div className="max-w-7xl mx-auto px-10 flex flex-col lg:flex-row gap-12 mb-16">
+        {/* Left: Facebook Embed (order-2 on small, order-1 on large) */}
+        <div className="w-full lg:w-1/2 order-2 lg:order-1">
+          <div className="space-y-6 text-[#4a4032] font-bold">
+            <div className="flex items-center gap-3">
+              <i className="fab fa-facebook-f text-[#bfa76a] text-lg"></i>
+              <span>Facebook</span>
+            </div>
+            <div className="shadow border:white p-1 rounded overflow-hidden w-fit">
+              <iframe
+                title="Facebook Page"
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574846083614&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                width="340"
+                height="130"
+                style={{ border: 'none', overflow: 'hidden' }}
+                scrolling="no"
+                frameBorder="0"
+                allow="encrypted-media"
+              ></iframe>
+            </div>
+            {/* Divider for consistency on small screens */}
+            <div className="block lg:hidden pt-4">
+              <hr className="border-t border-[#bfa76a] opacity-30" />
+            </div>
+          </div>
+        </div>
+
+
+        {/* Right: Contact Info */}
         <div className="w-full lg:w-1/2 space-y-6 order-1 lg:order-2">
-          {[{ icon: 'fas fa-phone', label: 'Telefon', value: 'Mobil: +36-30-123-4567' },
+          {[
+            {
+              icon: 'fas fa-phone',
+              label: 'Telefon',
+              value: '+36-30-160-14-89',
+            },
             {
               icon: 'fas fa-envelope',
               label: 'Email',
-              value: <a href="mailto:kriszti169@gmail.com" className="text-blue-600 break-words">pelda@munkaugyitanacsado.com</a>
-            },
-            {
-              icon: 'fab fa-facebook-f',
-              label: 'Facebook',
               value: (
-                <div className="w-fit h-1/2 mt-2 shadow border-2 border-[#e7dfd4]">
-                  <iframe
-                    title="Facebook Page"
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61555066264806&tabs&width=300&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                    width="100%"
-                    height="70"
-                    style={{ border: 'none', overflow: 'hidden' }}
-                    scrolling="no"
-                    frameBorder="0"
-                    allow="encrypted-media"
-                  ></iframe>
-                </div>
-              )
+                <a
+                  href="mailto:kriszti169@gmail.com"
+                  className="text-blue-600 break-words"
+                >
+                  info@hrhangolo.hu
+                </a>
+              ),
             },
             {
               icon: 'fas fa-map-marker-alt',
               label: 'Cím',
-              value: '2112 Veresegyház, Példa utca 10.'
-            }
-          ].map((item, index, array) => (
+              value: 'Online',
+            },
+          ].map((item, index) => (
             <div key={index}>
               <div className="flex items-center gap-3 text-[#4a4032] font-bold">
                 <i className={`${item.icon} text-[#bfa76a] text-lg`}></i>
                 <span>{item.label}</span>
               </div>
               <div className="text-[#4a4032] mt-1">{item.value}</div>
-              {index < array.length - 1 && (
                 <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
-              )}
             </div>
           ))}
-        </div>
-        {/* Left: Google Map (order-2 on small, order-1 on large) */}
-        <div className="w-full lg:w-1/2 shadow rounded overflow-hidden order-2 lg:order-1">
-          <iframe
-            title="Google Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86008.58404158364!2d19.222953727499235!3d47.65007014570404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741cdbff35efcaf%3A0xf9d707937bf6238e!2sVeresegyh%C3%A1z%2C%202112!5e0!3m2!1shu!2hu!4v1743936443888!5m2!1shu!2hu"
-            width="100%"
-            height="100%"
-            style={{ minHeight: '300px', border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
         </div>
       </div>
 

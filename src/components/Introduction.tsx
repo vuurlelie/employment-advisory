@@ -1,4 +1,4 @@
-import aboutme from "../assets/images/aboutme.png";
+import aboutme from "../assets/images/aboutme.jpg";
 
 function Introduction() {
   return (
@@ -27,22 +27,12 @@ function Introduction() {
           </div>
 
           {/* === Text Content === */}
-          <div className="order-3 md:order-2 mt-8 md:mt-0">
+          <div className="order-3 md:order-2 mt-8 lg:pr-10 md:mt-0">
             <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] text-justify mx-auto md:mx-0">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-              consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+              Sike Enikő HR és munkajogi szakokleveles tanácsadó vagyok. Több éves HR területen szerzett tapasztalattal hiszem, hogy a munka nem csupán megélhetés, hanem az önmegvalósítás és a jövőépítés egyik legfontosabb eszköze. HR és munkaügyi szakemberként abban támogathatlak, hogy magabiztosan, tudatosan és jogilag is megalapozottan hozhass döntéseket a karrierutad során.
             </p>
             <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] text-justify mx-auto md:mx-0">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-              consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-            </p>
-            <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] text-justify mx-auto md:mx-0">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-              consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-            </p>
-            <p className="max-w-lg mt-3 text-base lg:text-lg leading-relaxed text-[#4a4032] text-justify mx-auto md:mx-0">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-              consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+              Legyen szó álláskeresésről, karrierváltásról, munkahelyi nehézségekről vagy munkajogi kérdésekről, célom, hogy személyre szabott, gyakorlatias és őszinte tanácsokat adjak. Melletted állok, ha elbizonytalanodtál, változás előtt állsz, vagy egyszerűen csak szeretnél tisztábban látni a lehetőségeid között.
             </p>
 
             {/* Highlighted question section */}
@@ -54,7 +44,7 @@ function Introduction() {
               <span className="block text-md mt-2">
                 Bővebb információk a{" "}
                 <a
-                  href="https://www.facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61574846083614"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#bfa76a] hover:underline hover:text-[#d4af37] transition-colors duration-200"
