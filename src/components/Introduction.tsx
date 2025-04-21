@@ -39,19 +39,17 @@ function Introduction() {
             <p className="mt-6 text-[#4a4032] text-center md:text-left md:mt-8">
               <span className="relative inline-block">
                 <span className="absolute inline-block w-full bottom-0.5 h-2 bg-[#bfa76a] bg-opacity-30"></span>
-                <span className="relative text-xl"> Kérdésed van? </span>
+                <span className="relative text-xl">Kérdésed van?</span>
               </span>
               <span className="block text-md mt-2">
-                Bővebb információk a{" "}
+                Lépj velem kapcsolatba{" "}
                 <a
-                  href="https://www.facebook.com/profile.php?id=61574846083614"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#kapcsolat"
                   className="text-[#bfa76a] hover:underline hover:text-[#d4af37] transition-colors duration-200"
                 >
-                  Facebook
+                  itt
                 </a>
-                <span> oldalamon. </span>
+                , hogy személyes ajánlatot adhassak számodra.
               </span>
             </p>
           </div>
