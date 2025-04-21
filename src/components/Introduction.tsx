@@ -43,12 +43,17 @@ function Introduction() {
               </span>
               <span className="block text-md mt-2">
                 Lépj velem kapcsolatba{" "}
-                <a
-                  href="#kapcsolat"
-                  className="text-[#bfa76a] hover:underline hover:text-[#d4af37] transition-colors duration-200"
+                <span
+                  onClick={() => {
+                    const section = document.getElementById("kapcsolat");
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="cursor-pointer text-[#bfa76a] hover:underline hover:text-[#d4af37] transition-colors duration-200"
                 >
                   itt
-                </a>
+                </span>
                 , hogy személyes ajánlatot adhassak számodra.
               </span>
             </p>
