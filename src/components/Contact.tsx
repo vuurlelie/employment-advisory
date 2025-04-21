@@ -90,7 +90,7 @@ function Contact() {
       </h2>
       <div className="max-w-7xl mx-auto px-10 flex flex-col lg:flex-row gap-12 mb-16">
         {/* Left: Facebook Embed (order-2 on small, order-1 on large) */}
-        <div className="w-full lg:w-1/2 order-2 lg:order-1">
+        <div className="w-full lg:w-1/2 order-2 lg:order-1 -mt-6 lg:mt-0">
           <div className="space-y-6 text-[#4a4032] font-bold">
             <div className="flex items-center gap-3 text-base md:text-lg">
               <i className="fab fa-facebook-f text-[#bfa76a] text-base md:text-lg"></i>
@@ -109,7 +109,7 @@ function Contact() {
               ></iframe>
             </div>
             {/* Divider for consistency on small screens */}
-            <div className="block lg:hidden pt-4">
+            <div className="block lg:hidden">
               <hr className="border-t border-[#bfa76a] opacity-30" />
             </div>
           </div>
