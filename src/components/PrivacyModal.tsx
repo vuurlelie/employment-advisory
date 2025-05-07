@@ -25,17 +25,18 @@ const PrivacyModal: FC<PrivacyModalProps> = ({ showPrivacy, setShowPrivacy }) =>
           >
             {/* Sticky Header */}
             <div className="sticky top-0 bg-white z-10 flex items-center justify-between px-6 border-b">
+                <h2 className="text-xl font-bold mb-4">
+                Adatvédelmi tájékoztató – HR Hangoló
+                </h2>
                 {/* Close button */}
                 <button
-                className="absolute font-bold text-2xl -top-1 pl-2 right-4 text-gray-600 hover:text-gray-800"
+                className="font-bold text-2xl pl-2 mb-4 text-gray-600 hover:text-gray-800"
                 onClick={() => setShowPrivacy(false)}
                 >
                 ×
                 </button>
 
-                <h2 className="text-xl font-bold mb-4">
-                Adatvédelmi tájékoztató – HR Hangoló
-                </h2>
+                
             </div>
 
             {/* Scrollable Body */}
