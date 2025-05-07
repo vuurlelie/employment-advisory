@@ -27,7 +27,7 @@ const PrivacyModal: FC<PrivacyModalProps> = ({ showPrivacy, setShowPrivacy }) =>
             <div className="sticky top-0 bg-white z-10 flex items-center justify-between px-6 border-b">
                 {/* Close button */}
                 <button
-                className="absolute font-bold text-2xl -top-1 right-4 text-gray-600 hover:text-gray-800"
+                className="absolute font-bold text-2xl -top-1 pl-2 right-4 text-gray-600 hover:text-gray-800"
                 onClick={() => setShowPrivacy(false)}
                 >
                 ×
@@ -37,7 +37,7 @@ const PrivacyModal: FC<PrivacyModalProps> = ({ showPrivacy, setShowPrivacy }) =>
                 Adatvédelmi tájékoztató – HR Hangoló
                 </h2>
             </div>
-            
+
             {/* Scrollable Body */}
             <div className="overflow-y-auto p-6 prose max-w-none space-y-4 mb-2">
               <p>Hatályos: 2025. május 5-től</p>
@@ -193,7 +193,7 @@ const PrivacyModal: FC<PrivacyModalProps> = ({ showPrivacy, setShowPrivacy }) =>
             {/* Right-aligned Rendben button */}
             <div className="mt-auto flex justify-end">
               <button
-                className="bg-[#bfa76a] hover:bg-[#d4af37] text-white px-4 py-2 rounded"
+                className="bg-[#bfa76a] hover:bg-[#d4af37] text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-[#bfa76a]"
                 onClick={() => setShowPrivacy(false)}
               >
                 Rendben
