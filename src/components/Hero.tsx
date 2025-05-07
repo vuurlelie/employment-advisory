@@ -6,7 +6,7 @@ function Hero() {
     <div className="container">
       <div className="relative pt-32 max-w-6xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16 lg:gap-20">
 
-        {/* === TEXT SECTION WITH ANIMATION === */}
+        {/* --- Text section with animation --- */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* === IMAGE SECTION WITH ANIMATION === */}
+        {/* --- Image section with animation --- */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -44,7 +44,7 @@ function Hero() {
           <img
             src={hero}
             alt="Hero image"
-            className="boder:white p-2 w-60 sm:w-72 md:w-80 lg:w-80 rounded shadow-md"
+            className="border:white p-2 w-60 sm:w-72 md:w-80 lg:w-80 rounded shadow-md"
           />
         </motion.div>
       </div>
