@@ -165,7 +165,7 @@ const PrivacyModal: FC<PrivacyModalProps> = ({ showPrivacy, setShowPrivacy }) =>
                         href="https://www.naih.hu"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#bfa76a] hover:underline"
+                        className="text-[#bfa76a] hover:text-[#bfa76a] hover:underline"
                       >
                         naih.hu
                       </a>

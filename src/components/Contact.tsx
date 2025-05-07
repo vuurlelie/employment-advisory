@@ -169,7 +169,7 @@ function Contact() {
               onChange={() => setAgreed(!agreed)}
               className="h-4 w-4 text-[#bfa76a] border-gray-300 rounded justify-center"
             />
-            <label htmlFor="privacy" className="text-[#4a4032] mt-2 leading-none">
+            <div className="text-[#4a4032]">
               Elolvastam és elfogadom az{' '}
               <span
                 className="text-[#bfa76a] hover:underline cursor-pointer"
@@ -178,7 +178,7 @@ function Contact() {
                 Adatvédelmi tájékoztatót
               </span>
               .
-            </label>
+            </div>
           </div>
 
           {/* reCAPTCHA */}
