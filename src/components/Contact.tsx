@@ -3,6 +3,21 @@ import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 import PrivacyModal from './PrivacyModal';
 
+// detect if the user uses a mobile 
+function useIsMobile(breakpoint = 640) {
+const [isMobile, setIsMobile] = useState(
+  typeof window !== 'undefined' ? window.innerWidth < breakpoint : false
+);
+
+useEffect(() => {
+  const onResize = () => setIsMobile(window.innerWidth < breakpoint);
+  window.addEventListener('resize', onResize);
+  return () => window.removeEventListener('resize', onResize);
+}, [breakpoint]);
+
+return isMobile;
+}
+  
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -12,6 +27,8 @@ function Contact() {
   const [loading, setLoading] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+
+  const isMobile = useIsMobile(640);
 
   // reset form when scrolled out
   useEffect(() => {
@@ -78,34 +95,45 @@ function Contact() {
       </h2>
 
       {/* --- FB embed & Contact Info --- */}
-      <div className="max-w-7xl mx-auto px-10 flex flex-col lg:flex-row gap-12 mb-16">
+      <div className="max-w-7xl mx-auto sm:px-10 flex flex-col lg:flex-row gap-12 mb-16">
         {/* Facebook */}
-        <div className="w-full lg:w-1/2 order-2 lg:order-1">
-          <div className="space-y-6 text-[#4a4032] font-bold">
-            <div className="flex items-center gap-3 text-lg">
-              <i className="fab fa-facebook-f text-[#bfa76a]"></i>
-              <span>Facebook</span>
+        {isMobile && 
+          <>
+            <div className="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center">
+              <div className="space-y-6 text-[#4a4032] font-bold">
+                <div className="-mt-2 shadow rounded overflow-hidden w-full w-[300px]">
+                  <iframe
+                    title="Facebook Page"
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574846083614&tabs=timeline&width=300&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false" width="300" height="400"                style={{ border: 'none', overflow: 'hidden' }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    />
+                </div>
+              </div>
             </div>
-            <div className="shadow rounded overflow-hidden w-full max-w-[345px]">
-              <iframe
-                title="Facebook Page"
-                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574846083614&tabs&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                width="100%"
-                height="130"
-                style={{ border: 'none', overflow: 'hidden' }}
-                scrolling="no"
-                frameBorder="0"
-                allow="encrypted-media"
-              />
+          </>
+        }
+        {!isMobile && 
+          <>
+            <div className="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center">
+              <div className="space-y-6 text-[#4a4032] font-bold">
+                <div className="-mt-2 shadow rounded overflow-hidden w-full w-[500px]">
+                  <iframe
+                    title="Facebook Page"
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574846083614&tabs=timeline&width=500&height=350&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="500" height="350"                style={{ border: 'none', overflow: 'hidden' }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    />
+                </div>
+              </div>
             </div>
-            {/* divider on mobile */}
-            <div className="block lg:hidden">
-              <hr className="border-t border-[#bfa76a] opacity-30" />
-            </div>
-          </div>
-        </div>
+          </>
+        }
+        
         {/* Contact Info */}
-        <div className="w-full lg:w-1/2 space-y-6 order-1 lg:order-2">
+        <div className="w-full lg:w-1/2 space-y-8 order-1 lg:order-2">
           {[
             { icon:'fas fa-phone',        label:'Telefon', value:'+36-30-160-14-89' },
             { icon:'fas fa-envelope',     label:'Email',   value:<a href="mailto:info@hrhangolo.hu" className="text-blue-600 break-words">info@hrhangolo.hu</a> },
@@ -124,7 +152,7 @@ function Contact() {
       </div>
 
       {/* --- Message Form --- */}
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto sm:px-4">
         <h3 className="text-2xl font-semibold mb-6 text-[#4a4032] text-center md:text-left">
           Üzenetküldés
         </h3>
