@@ -1,3 +1,5 @@
+[![Frontend CI](https://github.com/vuurlelie/<repo-name>/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/vuurlelie/<repo-name>/actions/workflows/frontend-ci.yml)
+
 # Employment Advisory – Website
 
 This website presents individual employment advisory services with a clean, modern design, responsive layout, and a simple contact section for reaching out.
