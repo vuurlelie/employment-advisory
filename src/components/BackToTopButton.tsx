@@ -6,15 +6,12 @@ import { Ripple, initTWE } from "tw-elements";
  * and scrolls smoothly back to the top when clicked.
  */
 function BackToTopBtn() {
-  // Initialize Ripple effect (from tw-elements) once
   useEffect(() => {
     initTWE({ Ripple });
   }, []);
 
-  // Track visibility state of the button
   const [isVisible, setIsVisible] = useState(false);
 
-  // Handle scroll event to toggle button visibility
   useEffect(() => {
     const toggleVisibility = () => {
       setIsVisible(window.scrollY > 30);
@@ -24,7 +21,6 @@ function BackToTopBtn() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // Smooth scroll to the top of the page
   const backToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

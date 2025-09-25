@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === GLOBAL SETTINGS === */
 html,
 body {
   font-family: 'Merriweather', serif;
@@ -11,7 +10,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Prevent section from hiding under navbar */
+  scroll-padding-top: 100px; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,7 +27,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* === TEXT COLOR HELPERS === */
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
@@ -51,7 +49,6 @@ a.text-primary-dark:hover {
   color: #6e5e4e !important;
 }
 
-/* === PAGE STRUCTURE HELPERS === */
 #page-container {
   width: 100%;
   min-width: 320px;
@@ -69,7 +66,6 @@ a.text-primary-dark:hover {
   padding-bottom: 2rem;
 }
 
-/* === BACKGROUND SHAPES === */
 .square {
   position: absolute;
   display: block;
@@ -121,20 +117,17 @@ a.text-primary-dark:hover {
   transform: skewY(-4deg);
 }
 
-/* === IMAGE OVERLAYS === */
 .img-clip-overlay {
   transition: transform 0.2s ease-out;
   will-change: transform;
 }
 
-/* Csak közepes és nagyobb nézeteknél legyen a ferde vágás */
 @media (min-width: 768px) {
   .img-clip-overlay {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
   }
 }
 
-/* === TYPOGRAPHY & EFFECTS === */
 .text-back {
   position: absolute;
   top: -3rem;
@@ -157,9 +150,6 @@ a.text-primary-dark:hover {
   border-width: 2px;
 }
 
-/* === NAVBAR === */
-
-/* === MOBILE MENU STYLING (Hamburger) === */
 .mobile-nav-link {
   display: block;
   padding: 0.75rem 1rem;
@@ -180,7 +170,6 @@ a.text-primary-dark:hover {
   border-bottom: 2px solid #bfa76a;
 }
 
-/* === SWIPER CUSTOMIZATION === */
 .swiper-button-prev,
 .swiper-button-next {
   color: #bfa76a;
@@ -196,7 +185,6 @@ a.text-primary-dark:hover {
   opacity: 1;
 }
 
-/* === SUPPORT FOR BUTTON AS NAV LINK === */
 button.nav-link {
   position: relative;
   padding: 0.375rem 0.125rem;
@@ -207,7 +195,7 @@ button.nav-link {
   border: none;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
-  outline: none; /* Removes the default focus ring */
+  outline: none; 
 }
 
 button.nav-link.active {
@@ -248,4 +236,3 @@ button.nav-link:hover {
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out both;
 }
-

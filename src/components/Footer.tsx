@@ -1,20 +1,16 @@
 function Footer() {
   return (
     <>
-      {/* Background decoration with skewed gradient squares */}
       <div className="relative overflow-hidden">
         <span className="square square-flipped square-1"></span>
         <span className="square square-flipped square-2"></span>
 
-        {/* Footer content */}
         <footer className="relative">
           <div className="container container-footer text-center">
-            {/* Copyright text */}
             <p className="text-lg text-[#4a4032]">
               © 2025 Sike Enikő – Minden jog fenntartva.
             </p>
 
-            {/* Site creator info */}
             <p className="mt-2 text-md text-[#bfa76a]">
               Készítette: {' '}
               <a
@@ -27,7 +23,6 @@ function Footer() {
               </a>
             </p>
 
-            {/* Facebook icon */}
             <div className="mt-3">
               <a
                 href="https://www.facebook.com/profile.php?id=61574846083614"

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
-import ReCAPTCHA from 'react-google-recaptcha';
+//import emailjs from '@emailjs/browser';
+//import ReCAPTCHA from 'react-google-recaptcha';
 import PrivacyModal from './PrivacyModal';
 
-// detect if the user uses a mobile 
 function useIsMobile(breakpoint = 640) {
 const [isMobile, setIsMobile] = useState(
   typeof window !== 'undefined' ? window.innerWidth < breakpoint : false
@@ -20,18 +19,18 @@ return isMobile;
   
 
 function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  /*const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [captchaValid, setCaptchaValid] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [agreed, setAgreed] = useState(false);
+  const [agreed, setAgreed] = useState(false);*/
   const [showPrivacy, setShowPrivacy] = useState(false);
 
   const isMobile = useIsMobile(640);
 
   // reset form when scrolled out
-  useEffect(() => {
+  /*useEffect(() => {
     const resetFormIfLeaving = () => {
       const s = document.getElementById('kapcsolat')?.getBoundingClientRect();
       if (!s || s.top >= window.innerHeight || s.bottom <= 0) {
@@ -49,15 +48,34 @@ function Contact() {
   const validate = () => {
     let valid = true;
     const newErr = { name: '', email: '', message: '' };
-    if (!formData.name)      { newErr.name    = 'Név megadása kötelező!'; valid = false }
-    if (!formData.email)     { newErr.email   = 'Email cím megadása kötelező!'; valid = false }
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-                              newErr.email   = 'Érvénytelen email formátum'; valid = false }
-    if (!formData.message)   { newErr.message = 'Üzenet megadása kötelező!'; valid = false }
+    if (!formData.name)      
+    { 
+      newErr.name = 'Név megadása kötelező!'; 
+      valid = false 
+    }
+    
+    if (!formData.email)     
+    { 
+      newErr.email = 'Email cím megadása kötelező!'; 
+      valid = false 
+    }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) 
+    {
+      newErr.email = 'Érvénytelen email formátum'; 
+      valid = false 
+    }
+    
+    if (!formData.message)   
+    { 
+      newErr.message = 'Üzenet megadása kötelező!'; 
+      valid = false 
+    }
+
     if (!captchaValid) {
       alert('Kérlek, igazold, hogy nem vagy robot!');
       valid = false;
     }
+
     if (!agreed) {
       alert('Kérlek, fogadd el az Adatvédelmi tájékoztatót!');
       valid = false;
@@ -73,10 +91,12 @@ function Contact() {
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validate()) 
+      return;
+
     setLoading(true);
     emailjs
-      .send('service_t3mke0d', 'template_th4b8yf', formData, 'zz38H8pvSCAsbxUCS')
+      .send()
       .then(() => {
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
@@ -85,60 +105,131 @@ function Contact() {
       })
       .catch((err) => console.error('Email sending error:', err))
       .finally(() => setLoading(false));
-  };
+  };*/
 
   return (
     <section id="kapcsolat" className="bg-[#f9f9f9] py-12 px-4 shadow">
-      {/* --- Section Title --- */}
       <h2 className="text-3xl md:text-4xl font-bold text-[#4a4032] text-center pb-12 drop-shadow-md">
         Kapcsolat
       </h2>
 
-      {/* --- FB embed & Contact Info --- */}
       <div className="max-w-7xl mx-auto sm:px-10 flex flex-col lg:flex-row gap-12 mb-16">
-        {/* Facebook */}
-        {isMobile && 
-          <>
-            <div className="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center">
-              <div className="space-y-6 text-[#4a4032] font-bold">
-                <div className="-mt-2 shadow rounded overflow-hidden w-full w-[300px]">
+        {isMobile && (
+          <div className="w-full order-2">
+            <div className="text-[#4a4032] font-bold space-y-8">
+              <div>
+                <div className="flex items-center gap-3 text-[#4a4032] font-bold text-lg">
+                  <i className="fab fa-facebook-square text-[#bfa76a] text-lg" aria-hidden></i>
+                  <span>Facebook</span>
+                </div>
+                <div className="mt-2 shadow rounded overflow-hidden w-full max-w-[300px] border border-white">
                   <iframe
                     title="Facebook Page"
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574846083614&tabs=timeline&width=300&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false" width="300" height="400"                style={{ border: 'none', overflow: 'hidden' }}
+                    src={
+                      "https://www.facebook.com/plugins/page.php?" +
+                      "href=" + encodeURIComponent("https://www.facebook.com/profile.php?id=61574846083614") +
+                      "&tabs=" +                      
+                      "&width=300" +
+                      "&height=130" +
+                      "&small_header=false" +          
+                      "&adapt_container_width=true" +
+                      "&hide_cover=false" +
+                      "&show_facepile=false"
+                    }
+                    width="300"
+                    height="130"
+                    style={{ border: "none", overflow: "hidden" }}
                     scrolling="no"
                     frameBorder="0"
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    />
+                  />
                 </div>
+                <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
+              </div>
+
+              <div>
+                <div className="flex items-center gap-3 text-[#4a4032] font-bold text-lg">
+                  <i className="fas fa-shield-alt text-[#bfa76a] text-lg" aria-hidden></i>
+                  <span>
+                    <button
+                      type="button"
+                      onClick={() => setShowPrivacy(true)}
+                      className="text-left text-[#4a4032] mt-1 text-lg hover:underline focus:outline-none rounded"
+                      aria-haspopup="dialog"
+                      aria-controls="privacy-modal"
+                    >
+                      Adatvédelmi tájékoztató
+                    </button>
+                  </span>
+                </div>
+                
+                <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
               </div>
             </div>
-          </>
-        }
-        {!isMobile && 
-          <>
-            <div className="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center">
-              <div className="space-y-6 text-[#4a4032] font-bold">
-                <div className="-mt-2 shadow rounded overflow-hidden w-full w-[500px]">
-                  <iframe
-                    title="Facebook Page"
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574846083614&tabs=timeline&width=500&height=350&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="500" height="350"                style={{ border: 'none', overflow: 'hidden' }}
-                    scrolling="no"
-                    frameBorder="0"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    />
-                </div>
+          </div>
+        )}
+
+        {!isMobile && (
+          <div className="w-full lg:w-1/2 order-2 lg:order-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 text-[#4a4032] font-bold text-lg">
+                <i className="fab fa-facebook-square text-[#bfa76a] text-lg"></i>
+                <span>Facebook</span>
               </div>
+              <div className="mt-2 shadow rounded overflow-hidden w-[500px] border border-white">
+                <iframe
+                  title="Facebook Page"
+                  src={
+                    "https://www.facebook.com/plugins/page.php?" +
+                    "href=" + encodeURIComponent("https://www.facebook.com/profile.php?id=61574846083614") +
+                    "&tabs=" +
+                    "&width=500" +
+                    "&height=132" +
+                    "&small_header=false" +
+                    "&adapt_container_width=true" +
+                    "&hide_cover=false" +
+                    "&show_facepile=false"
+                  }
+                  width="500"
+                  height="132"
+                  style={{ border: "none", overflow: "hidden" }}
+                  scrolling="no"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                />
+              </div>
+              <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
             </div>
-          </>
-        }
-        
-        {/* Contact Info */}
+            <div className="mt-2">
+              <div className="flex items-center gap-3 text-[#4a4032] font-bold text-lg">
+                <i className="fas fa-shield-alt text-[#bfa76a] text-lg"></i>
+                  <button
+                    type="button"
+                    onClick={() => setShowPrivacy(true)}
+                    className="text-left text-[#4a4032] text-lg hover:underline focus:outline-none rounded"
+                  >
+                    Adatvédelmi tájékoztató
+                  </button>
+              </div>
+              <div className="text-[#f9f9f9] mt-1 text-lg">0</div>
+              <hr className="mt-3 border-t border-[#bfa76a] opacity-30" />
+            </div>
+          </div>
+        )}
         <div className="w-full lg:w-1/2 space-y-8 order-1 lg:order-2">
           {[
-            { icon:'fas fa-phone',        label:'Telefon', value:'+36-30-160-14-89' },
-            { icon:'fas fa-envelope',     label:'Email',   value:<a href="mailto:info@hrhangolo.hu" className="text-blue-600 break-words">info@hrhangolo.hu</a> },
-            { icon:'fas fa-map-marker-alt', label:'Cím',   value:'Online' }
-          ].map((it,i) => (
+            { icon: "fas fa-phone", label: "Telefon", value: "+36-30-160-14-89" },
+            {
+              icon: "fas fa-envelope",
+              label: "Email",
+              value: (
+                <a href="mailto:info@hrhangolo.hu" className="text-blue-600 break-words">
+                  info@hrhangolo.hu
+                </a>
+              ),
+            },
+            { icon: "fas fa-map-marker-alt", label: "Cím", value: "Online" },
+          ].map((it, i) => (
             <div key={i}>
               <div className="flex items-center gap-3 text-[#4a4032] font-bold text-lg">
                 <i className={`${it.icon} text-[#bfa76a] text-lg`}></i>
@@ -151,8 +242,9 @@ function Contact() {
         </div>
       </div>
 
+
       {/* --- Message Form --- */}
-      <div className="max-w-4xl mx-auto sm:px-4">
+      {/*<div className="max-w-4xl mx-auto sm:px-4">
         <h3 className="text-2xl font-semibold mb-6 text-[#4a4032] text-center md:text-left">
           Üzenetküldés
         </h3>
@@ -162,7 +254,7 @@ function Contact() {
           </p>
         )}
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Name */}
+          {/* Name 
           <div>
             <input
               type="text" name="name" placeholder="Név"
@@ -171,7 +263,7 @@ function Contact() {
             />
             {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
           </div>
-          {/* Email */}
+          {/* Email 
           <div>
             <input
               type="email" name="email" placeholder="Email cím"
@@ -180,7 +272,7 @@ function Contact() {
             />
             {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
           </div>
-          {/* Message */}
+          {/* Message 
           <div className="md:col-span-2">
             <textarea
               name="message" placeholder="Üzenet"
@@ -190,7 +282,7 @@ function Contact() {
             {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
           </div>
 
-          {/* Privacy checkbox */}
+          {/* Privacy checkbox 
           <div className="md:col-span-2 flex items-center space-x-2 mb-4">
             <input
               type="checkbox" id="privacy" checked={agreed}
@@ -209,16 +301,16 @@ function Contact() {
             </div>
           </div>
 
-          {/* reCAPTCHA */}
+          {/* reCAPTCHA 
           <div className="md:col-span-2 flex justify-center">
             <ReCAPTCHA
-              sitekey="6LePlAYrAAAAAB2BOiJlEs6SNlPuPTahLlePF2C9"
+              sitekey=""
               onChange={(v) => setCaptchaValid(!!v)}
               hl="hu"
             />
           </div>
 
-          {/* Submit */}
+          {/* Submit 
           <div className="md:col-span-2 flex justify-center md:justify-end">
             <button
               type="submit"
@@ -238,9 +330,8 @@ function Contact() {
             </button>
           </div>
         </form>
-      </div>
+      </div>*/}
 
-      {/* --- Privacy Modal --- */}
       <PrivacyModal
         showPrivacy={showPrivacy}
         setShowPrivacy={setShowPrivacy}

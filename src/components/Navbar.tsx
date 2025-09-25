@@ -65,7 +65,6 @@ function Navbar() {
           <img src={logo} alt="Logo" className="w-16 h-auto" />
         </button>
 
-        {/* Desktop navigation */}
         <nav className="hidden sm:flex space-x-6 items-center text-base font-semibold uppercase tracking-wide">
           {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
             <button
@@ -82,7 +81,6 @@ function Navbar() {
           ))}
         </nav>
 
-        {/* Hamburger menu button */}
         <div className="sm:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -94,7 +92,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown menu */}
       {isMenuOpen && (
         <div className="sm:hidden bg-white shadow-md py-4 px-6 space-y-4">
           {["bemutatkozas", "szolgaltatasok", "kapcsolat"].map((id) => (
