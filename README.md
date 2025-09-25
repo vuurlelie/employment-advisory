@@ -1,4 +1,4 @@
-[![Frontend CI](https://github.com/vuurlelie/<repo-name>/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/vuurlelie/<repo-name>/actions/workflows/frontend-ci.yml)
+[![Frontend CI](https://github.com/vuurlelie/employment-advisory/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/vuurlelie/<repo-name>/actions/workflows/frontend-ci.yml)
 
 # Employment Advisory – Website
 
