@@ -1,0 +1,37 @@
+name: Frontend CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      # csak akkor fut, ha van ilyen script a package.json-ban
+      - name: Typecheck
+        run: npm run -s typecheck --if-present
+      - name: Lint
+        run: npm run -s lint --if-present
+      - name: Test
+        run: npm run -s test --if-present
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
